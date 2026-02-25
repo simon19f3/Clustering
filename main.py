@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from src.kmeans import KMeansScratch
 from src.dbscan import DBSCANScratch
-from src.hdbscan import HDBSCANScratch
+# from src.hdbscan import HDBSCANScratch
 from src.metrics import get_all_metrics
 
 # Load Data
@@ -12,8 +12,8 @@ X = (df.values - df.values.mean(axis=0)) / df.values.std(axis=0)
 # Run Algorithms
 models = {
     "K-Means": KMeansScratch(k=3).fit(X),
-    "DBSCAN": DBSCANScratch(eps=0.4, min_samples=20).fit(X),
-    "HDBSCAN": HDBSCANScratch(min_cluster_size=20).fit(X)
+    "DBSCAN": DBSCANScratch(eps=None, min_samples=20).fit(X),
+    # "HDBSCAN": HDBSCANScratch(min_cluster_size=20).fit(X)
 }
 
 # Evaluation
